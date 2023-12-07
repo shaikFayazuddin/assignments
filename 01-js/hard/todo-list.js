@@ -41,12 +41,4 @@ class Todo {
 
 
 }
-let fayaztodo = new Todo()
-fayaztodo.add("sleep")
-fayaztodo.add("eat")
-fayaztodo.remove(1)
-fayaztodo.update(1,"play")
-console.log(fayaztodo.getAll())
-console.log(fayaztodo.get(4))
-console.log(fayaztodo)
 module.exports = Todo;
