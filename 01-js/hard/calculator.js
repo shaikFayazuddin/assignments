@@ -16,6 +16,58 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor(result){
+    this.result = 0
+  }
+  add(num){
+    this.result += num
+    return this.result
+  }
+  subtract(num){
+    this.result -= num
+    return this.result
+  }
+  multiply(num){
+    this.result *= num
+    return this.result
+  }
+  divide(num){
+    if(num!=0){
+      this.result /= num
+      return this.result
+    }else{
+      throw new Error("Error")
+    }
+  }
+  clear(){
+    this.result = 0
+  }
+  getResult(){
+    return this.result
+  }
+  calculate(str){
+    this.result = eval(str.replace(/\s/g," "))
+    if(this.result === Infinity){
+      throw new Error("Error")
+    }else{
+      return this.result
+    }
+    
+  }
+}
 
+//let myCalci = new Calculator()
+// myCalci.add(5)
+// myCalci.add(3)
+// myCalci.subtract(9)
+// myCalci.multiply(-3)
+
+//myCalci.add(4)
+//myCalci.divide(2)
+//console.log(myCalci.divide(0))
+//myCalci.clear()
+//console.log(myCalci.calculate('2+3*4'))
+//console.log(myCalci.getResult())
+//console.log(myCalci)
 module.exports = Calculator;
