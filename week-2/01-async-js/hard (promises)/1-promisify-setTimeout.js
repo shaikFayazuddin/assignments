@@ -9,7 +9,7 @@ function wait(n) {
         }, n*1000);
     })
 }
-let ans = wait(5000)
+let ans = wait(5)
 ans.then(function(){
     console.log("Promise resolved")
 })
