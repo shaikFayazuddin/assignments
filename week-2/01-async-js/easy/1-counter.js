@@ -6,7 +6,6 @@
 function counter(n){
     let stopwatch = setInterval(count,1000)
     let localCounter = 0;
-    let minCounter = 1
     function count(){
         if(localCounter<=n){
             console.clear()
