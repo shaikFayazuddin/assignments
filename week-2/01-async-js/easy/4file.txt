@@ -1,0 +1,2 @@
+Harkirat is a full-stack developer with four years of professional experience in building scalable platforms for top tech companies and banks like Amazon and Goldman Sachs. He specializes in back-end development and DevOps for building and deploying applications experiencing high amounts of traffic. Harkirat has also developed and maintained many open source projects being used by developers around the world.
+
