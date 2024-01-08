@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const jwtPassword = 'secret';
+const zod = require("zod")
 
 
 /**
@@ -15,7 +16,39 @@ const jwtPassword = 'secret';
  */
 function signJwt(username, password) {
     // Your code here
+    function validateInput(obj){
+        const schema = zod.object({
+            username: zod.string().email(),
+            password: zod.string().min(6)
+        })
+
+        const response = schema.safeParse(obj)
+        //console.log(response)
+        //console.log(response.success)
+
+        if(response.success){
+            var token = jwt.sign({
+                username:username,
+                password:password
+            }, jwtPassword)
+            //console.log(token)
+            return token
+        }else{
+            return "Invalid credentials"
+        }  
+    }
+
+    const vi = validateInput({
+        "username":username,
+        "password":password
+    }) 
+    return vi
+    
 }
+// signJwt("shaikfayazuddin18@gmail.com","cohort12345")
+
+var jwtoken = signJwt("shaikfayazuddin18@gmail.com","cohort12345")
+console.log(jwtoken)
 
 /**
  * Verifies a JWT using a secret key.
@@ -27,8 +60,10 @@ function signJwt(username, password) {
  */
 function verifyJwt(token) {
     // Your code here
+    const decoded = jwt.verify(token,jwtPassword)
+    console.log(decoded)
 }
-
+verifyJwt(jwtoken)
 /**
  * Decodes a JWT to reveal its payload without verifying its authenticity.
  *
@@ -39,7 +74,6 @@ function verifyJwt(token) {
 function decodeJwt(token) {
     // Your code here
 }
-
 
 module.exports = {
   signJwt,
