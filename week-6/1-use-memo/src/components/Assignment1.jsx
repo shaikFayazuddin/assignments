@@ -6,17 +6,22 @@ import { useState } from "react";
 export function Assignment1() {
     const [input, setInput] = useState(0);
     // Your solution starts here
-    const expensiveValue = 0; 
+    const expensiveValue = factorial; 
+    function factorial(input){
+        for(let i = input-1;i>0;i--){
+            expensiveValue = input*i
+        }
+        return expensiveValue
+    }
     // Your solution ends here
 
     return (
         <div>
-            <input 
-                type="number" 
-                value={input} 
-                onChange={(e) => setInput(Number(e.target.value))} 
+            <input type="number" 
+                   value={input}
+                   onChange={e => setInput(Number(e.target.value))}
             />
-            <p>Calculated Value: {expensiveValue}</p>
+            <p>Calculated Value : {expensiveValue}</p>
         </div>
     );
 }
