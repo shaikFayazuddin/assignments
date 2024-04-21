@@ -49,7 +49,7 @@ describe('Todo Operations', () => {
   
     test('createTodo inserts a new todo for a user', async () => {
       const title = 'Test Todo';
-      const description = 'Test Description';
+      const description = 'Test Descriptions';
       const todo = await createTodo(userId, title, description);
   
       expect(todo).toHaveProperty('id');
